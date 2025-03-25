@@ -3,7 +3,8 @@
   flex-direction: column;
   width: 100%;
   padding: 24px;
-  /* gap: 16px; */
+  gap: 8px;
+  border-radius: 8px;
 }
 
 .form__group {
@@ -46,4 +47,9 @@
   border-radius: 8px;
   width: 100%;
   font-family: inherit;
+}
+
+.form__group textarea:focus {
+  outline: none;
+  border-color: burlywood;
 }
