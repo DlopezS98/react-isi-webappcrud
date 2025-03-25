@@ -1,0 +1,38 @@
+.admin-container {
+  display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 80px calc(100vh - 80px);
+	grid-template-areas: "admin-header		admin-header" 
+											 "admin-sidebar		admin-container";
+	
+}
+
+.admin-header {
+	grid-area: admin-header;
+	background-color: aliceblue;
+}
+
+.admin-sidebar {
+	grid-area: admin-sidebar;
+	background-color: antiquewhite;
+	width: 100%;
+}
+
+.admin-main-container {
+	grid-area: admin-container;
+
+	display: grid;
+	grid-template-rows: 1fr 100px;
+	grid-template-areas: "admin-content" 
+											 "admin-footer";
+}
+
+.admin-main-content {
+	grid-area: admin-content;
+	overflow-y: auto;
+}
+
+.admin-footer {
+	grid-area: admin-footer;
+	background-color: #c0c0c0;
+}

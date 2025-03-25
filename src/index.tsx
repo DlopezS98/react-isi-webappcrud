@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Placeholder from './components/placeholder';
+import AdminLayout from './admin/layout';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -13,6 +14,10 @@ root.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/onboarding' element={<Placeholder />} />
+        <Route path='/dashboard' element={<AdminLayout />} >
+          <Route index element={<Placeholder label="Dashboard" />} />
+          <Route path='products' element={<Placeholder label="Products" />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
