@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Placeholder from './components/placeholder';
 import AdminLayout from './admin/layout';
-import ProductsPage from './admin/products/products.page';
+import ProductsPage from './admin/products/page';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
