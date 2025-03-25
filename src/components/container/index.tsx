@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 interface ContainerProps extends React.PropsWithChildren<{}> {
-	className?: string ;
+  className?: string;
 }
 
 export default function Container(props: ContainerProps) {
-	return <div className={`container ${props.className}`}>{props.children}</div>;
+  return <div className={`container ${props.className}`}>{props.children}</div>;
 }
