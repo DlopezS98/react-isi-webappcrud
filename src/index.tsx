@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import Placeholder from './components/placeholder';
 import AdminLayout from './admin/layout';
 import ProductsPage from './admin/products/page';
+import CreateProductPage from './admin/products/create';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -15,9 +16,12 @@ root.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/onboarding' element={<Placeholder />} />
-        <Route path='/dashboard' element={<AdminLayout />} >
-          <Route index element={<Placeholder label="Dashboard" />} />
-          <Route path='products' element={<ProductsPage />} />
+        <Route path='/dashboard' element={<AdminLayout />}>
+          <Route index element={<Placeholder label='Dashboard' />} />
+          <Route path='products'>
+            <Route index element={<ProductsPage />} />
+            <Route path='create' element={<CreateProductPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

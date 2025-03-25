@@ -3,6 +3,7 @@ import Card, { CardBody, CardHeader } from '../../components/card';
 import DataGrid, { DatagridColumn } from '../../components/data-grid';
 import AddIcon from '@mui/icons-material/Add';
 import { Products } from './data';
+import { useNavigate } from 'react-router';
 
 export interface ProductsPageProps {}
 
@@ -31,6 +32,12 @@ const columns: DatagridColumn[] = [
 ];
 
 const ProductsPage: React.FC<ProductsPageProps> = () => {
+  const navigate = useNavigate();
+
+  const handleAddProduct = () => {
+    navigate('/dashboard/products/create');
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -40,7 +47,7 @@ const ProductsPage: React.FC<ProductsPageProps> = () => {
         <p>Products page content</p>
         <DataGrid
           toolbar={
-            <Button onClick={console.log} variant='primary'>
+            <Button onClick={handleAddProduct} variant='primary'>
               <AddIcon /> Add product
             </Button>
           }
