@@ -1,8 +1,14 @@
 .isi-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   padding: 12px 24px;
   border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
+
+  gap: 8px;
 }
 
 .isi-button:disabled {
