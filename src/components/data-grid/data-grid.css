@@ -12,6 +12,12 @@
   align-items: center;
   margin-bottom: 16px;
   gap: 16px;
+
+  background-color: aliceblue;
+
+  position: sticky;
+  top: 0;
+  padding: 8px 0;
 }
 
 .isi-datagrid-container .isi-datagrid-toolbar .isi-datagrid-toolbar-items {

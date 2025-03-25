@@ -1,9 +1,11 @@
 import './card.css';
 
-export interface CardProps {}
+export interface CardProps {
+  className?: string;
+}
 
 const Card: React.FC<React.PropsWithChildren<CardProps>> = (props) => {
-  return <div className='isi-card shadow-md'>{props.children}</div>;
+  return <div className={`isi-card shadow-md ${props.className}`}>{props.children}</div>;
 };
 export default Card;
 

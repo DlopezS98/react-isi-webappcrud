@@ -30,25 +30,27 @@ export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow
   const getCellValue = (row: TRow, column: DatagridColumn) => {
     const value = row[column.field];
     if (column.type === 'date') {
-      return (value as Date).toLocaleDateString('en-US', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+      return (value as Date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' });
     }
     return value;
   };
 
   const getCell = (row: TRow, column: DatagridColumn) => {
-    return <td key={column.field}>{
-      column.prefix
-        ? <>{column.prefix} {String(getCellValue(row, column))}</>
-        : String(getCellValue(row, column))
-    }</td>;
+    return (
+      <td key={column.field}>
+        {column.prefix ? (
+          <>
+            {column.prefix} {String(getCellValue(row, column))}
+          </>
+        ) : (
+          String(getCellValue(row, column))
+        )}
+      </td>
+    );
   };
 
   const getRow = (row: TRow) => {
-    return (
-      <tr key={row.id}>
-        {props.columns.map(column => getCell(row, column))}
-      </tr>
-    );
+    return <tr key={row.id}>{props.columns.map((column) => getCell(row, column))}</tr>;
   };
 
   const onSearch = useDebouncedCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,8 +62,8 @@ export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow
     }
 
     const lowerSearch = search.toLowerCase();
-    const filtered = props.rows.filter(row => {
-      return props.columns.some(column => {
+    const filtered = props.rows.filter((row) => {
+      return props.columns.some((column) => {
         const value = String(row[column.field]).toLowerCase();
         return value.includes(lowerSearch);
       });
@@ -73,24 +75,17 @@ export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow
   return (
     <div className='isi-datagrid-container shadow-md'>
       <div className='isi-datagrid-toolbar'>
-      <div className='isi-datagrid-search'>
+        <div className='isi-datagrid-search'>
           <input type='text' placeholder='Search...' onChange={onSearch} />
         </div>
-        <div className='isi-datagrid-toolbar-items'>
-          {props.toolbar}
-        </div>
+        <div className='isi-datagrid-toolbar-items'>{props.toolbar}</div>
       </div>
       <table>
         <thead>
-          <tr>
-            {props.columns.map(getColumnHeader)}
-          </tr>
+          <tr>{props.columns.map(getColumnHeader)}</tr>
         </thead>
-        <tbody>
-          {filteredRows.map(getRow)}
-        </tbody>
+        <tbody>{filteredRows.map(getRow)}</tbody>
       </table>
     </div>
   );
-};
-
+}
