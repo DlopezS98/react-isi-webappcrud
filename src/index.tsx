@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Placeholder from './components/placeholder';
 import AdminLayout from './admin/layout';
+import ProductsPage from './admin/products/products.page';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -16,7 +17,7 @@ root.render(
         <Route path='/onboarding' element={<Placeholder />} />
         <Route path='/dashboard' element={<AdminLayout />} >
           <Route index element={<Placeholder label="Dashboard" />} />
-          <Route path='products' element={<Placeholder label="Products" />} />
+          <Route path='products' element={<ProductsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
