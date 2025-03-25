@@ -15,9 +15,10 @@ export const CardHeader: React.FC<React.PropsWithChildren<CardHeaderProps>> = (p
   return <div className='isi-card__header'>{props.children}</div>;
 };
 
-export interface CardBodyProps {}
+export interface CardBodyProps {
+  className?: string;
+}
 
 export const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = (props) => {
-  return <div className='isi-card__body'>{props.children}</div>;
+  return <div className={`isi-card__body ${props.className}`}>{props.children}</div>;
 };
-
