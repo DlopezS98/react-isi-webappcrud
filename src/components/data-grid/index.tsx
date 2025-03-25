@@ -1,5 +1,6 @@
 import React from 'react';
 import './data-grid.css';
+import { useDebouncedCallback } from 'use-debounce';
 
 export interface GridRow {
   id: string | number;
@@ -16,9 +17,12 @@ export interface DatagridColumn {
 export interface DataGridProps<TRow extends GridRow> {
   rows: TRow[];
   columns: DatagridColumn[];
+  addSearch?: boolean;
 }
 
 export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow>) {
+  const [filteredRows, setFilteredRows] = React.useState<TRow[]>(() => props.rows);
+
   const getColumnHeader = (column: DatagridColumn) => {
     return <th key={column.field}>{column.header}</th>;
   };
@@ -47,8 +51,30 @@ export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow
     );
   };
 
+  const onSearch = useDebouncedCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const search = event.target.value;
+
+    if (!search) {
+      setFilteredRows(props.rows);
+      return;
+    }
+
+    const lowerSearch = search.toLowerCase();
+    const filtered = props.rows.filter(row => {
+      return props.columns.some(column => {
+        const value = String(row[column.field]).toLowerCase();
+        return value.includes(lowerSearch);
+      });
+    });
+
+    setFilteredRows(filtered);
+  }, 600);
+
   return (
     <div className='isi-datagrid-container shadow-md'>
+      <div className='isi-datagrid-search'>
+        <input type='text' placeholder='Search...' onChange={onSearch} />
+      </div>
       <table>
         <thead>
           <tr>
@@ -56,7 +82,7 @@ export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow
           </tr>
         </thead>
         <tbody>
-          {props.rows.map(getRow)}
+          {filteredRows.map(getRow)}
         </tbody>
       </table>
     </div>

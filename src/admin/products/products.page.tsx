@@ -28,6 +28,7 @@ const columns: DatagridColumn[] = [
 ];
 
 const ProductsPage: React.FC<ProductsPageProps> = () => {
+  // Mock data - replace with actual data from API
   const rows = [
     {
       id: 1,
