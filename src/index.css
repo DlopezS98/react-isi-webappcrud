@@ -1,4 +1,5 @@
 @import url('./styles/utils.css');
+@import url('./styles/forms.css');
 @import url('./admin/admin.css');
 
 * {
