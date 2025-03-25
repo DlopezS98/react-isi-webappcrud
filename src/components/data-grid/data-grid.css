@@ -6,38 +6,39 @@
   border-radius: 4px;
 }
 
-.isi-datagrid-container .isi-datagrid-search {
+.isi-datagrid-container .isi-datagrid-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.isi-datagrid-container .isi-datagrid-toolbar .isi-datagrid-toolbar-items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.isi-datagrid-container .isi-datagrid-toolbar .isi-datagrid-search {
+  flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 16px;
 }
 
-.isi-datagrid-container .isi-datagrid-search input {
+.isi-datagrid-container .isi-datagrid-toolbar .isi-datagrid-search input {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 300px;
+  width: 100%;
 }
 
-.isi-datagrid-container .isi-datagrid-search input:focus {
+.isi-datagrid-container .isi-datagrid-toolbar .isi-datagrid-search input:focus {
   outline: none;
   border-color: burlywood;
 }
-
-/* .isi-datagrid-container .isi-datagrid-search .isi-search-button {
-  padding: 12px 24px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-left: 8px;
-  cursor: pointer;
-  background-color: burlywood;
-  color: black;
-}
-
-.isi-datagrid-container .isi-datagrid-search .isi-search-button:hover {
-  background-color: rgb(204, 164, 111);
-} */
 
 .isi-datagrid-container table {
   width: 100%;

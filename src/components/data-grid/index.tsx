@@ -17,7 +17,7 @@ export interface DatagridColumn {
 export interface DataGridProps<TRow extends GridRow> {
   rows: TRow[];
   columns: DatagridColumn[];
-  addSearch?: boolean;
+  toolbar?: React.ReactNode;
 }
 
 export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow>) {
@@ -72,8 +72,13 @@ export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow
 
   return (
     <div className='isi-datagrid-container shadow-md'>
+      <div className='isi-datagrid-toolbar'>
       <div className='isi-datagrid-search'>
-        <input type='text' placeholder='Search...' onChange={onSearch} />
+          <input type='text' placeholder='Search...' onChange={onSearch} />
+        </div>
+        <div className='isi-datagrid-toolbar-items'>
+          {props.toolbar}
+        </div>
       </div>
       <table>
         <thead>

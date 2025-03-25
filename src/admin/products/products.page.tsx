@@ -1,5 +1,6 @@
-import Card, { CardBody, CardHeader } from "../../components/card";
-import DataGrid, { DatagridColumn } from "../../components/data-grid";
+import Button from '../../components/button';
+import Card, { CardBody, CardHeader } from '../../components/card';
+import DataGrid, { DatagridColumn } from '../../components/data-grid';
 
 export interface ProductsPageProps {}
 
@@ -24,7 +25,7 @@ const columns: DatagridColumn[] = [
     header: 'Created at',
     field: 'createdAt',
     type: 'date',
-  }
+  },
 ];
 
 const ProductsPage: React.FC<ProductsPageProps> = () => {
@@ -53,16 +54,26 @@ const ProductsPage: React.FC<ProductsPageProps> = () => {
       name: 'Product 4',
       price: 400,
       createdAt: new Date(),
-    }
+    },
   ];
 
   return (
-    <div className="container py-3">
+    <div className='container py-3'>
       <Card>
-        <CardHeader><h2>Product list</h2></CardHeader>
+        <CardHeader>
+          <h2>Product list</h2>
+        </CardHeader>
         <CardBody>
           <p>Products page content</p>
-          <DataGrid rows={rows} columns={columns} />
+          <DataGrid
+            toolbar={
+              <Button onClick={console.log} variant='secondary'>
+                Add product
+              </Button>
+            }
+            rows={rows}
+            columns={columns}
+          />
         </CardBody>
       </Card>
     </div>
