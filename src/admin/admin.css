@@ -1,10 +1,10 @@
 .admin-container {
-  display: grid;
+	display: grid;
 	grid-template-columns: 200px 1fr;
 	grid-template-rows: 80px calc(100vh - 80px);
-	grid-template-areas: "admin-header		admin-header" 
-											 "admin-sidebar		admin-container";
-	
+	grid-template-areas: "admin-header		admin-header"
+		"admin-sidebar		admin-container";
+
 }
 
 .admin-header {
@@ -23,13 +23,13 @@
 
 	display: grid;
 	grid-template-rows: 1fr 100px;
-	grid-template-areas: "admin-content" 
-											 "admin-footer";
+	grid-template-areas: "admin-content"
+		"admin-footer";
+	overflow-y: auto;
 }
 
 .admin-main-content {
 	grid-area: admin-content;
-	overflow-y: auto;
 }
 
 .admin-footer {

@@ -5,7 +5,7 @@ export interface AdminLayoutProps {}
 const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
   return (
     <div className='admin-container'>
-      <header className='admin-header'>
+      <header className='admin-header shadow-md'>
         <nav>
           <h1>Admin Header</h1>
         </nav>
@@ -21,10 +21,12 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
         </ul>
       </aside>
       <main className='admin-main-container'>
-        <div className='admin-main-content container py-3'><Outlet /></div>
+        <div className='admin-main-content container py-3'>
+          <Outlet />
+        </div>
         <footer className='admin-footer'>
-        <p>Admin Footer</p>
-      </footer>
+          <p>Admin Footer</p>
+        </footer>
       </main>
     </div>
   );
