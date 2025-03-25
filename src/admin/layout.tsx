@@ -21,7 +21,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
         </ul>
       </aside>
       <main className='admin-main-container'>
-        <div className='admin-main-content'><Outlet /></div>
+        <div className='admin-main-content container py-3'><Outlet /></div>
         <footer className='admin-footer'>
         <p>Admin Footer</p>
       </footer>

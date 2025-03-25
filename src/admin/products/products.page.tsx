@@ -59,25 +59,23 @@ const ProductsPage: React.FC<ProductsPageProps> = () => {
   ];
 
   return (
-    <div className='container py-3'>
-      <Card>
-        <CardHeader>
-          <h2>Product list</h2>
-        </CardHeader>
-        <CardBody>
-          <p>Products page content</p>
-          <DataGrid
-            toolbar={
-              <Button onClick={console.log} variant='primary'>
-                <AddIcon /> Add product
-              </Button>
-            }
-            rows={rows}
-            columns={columns}
-          />
-        </CardBody>
-      </Card>
-    </div>
+    <Card>
+      <CardHeader>
+        <h2>Product list</h2>
+      </CardHeader>
+      <CardBody>
+        <p>Products page content</p>
+        <DataGrid
+          toolbar={
+            <Button onClick={console.log} variant='primary'>
+              <AddIcon /> Add product
+            </Button>
+          }
+          rows={rows}
+          columns={columns}
+        />
+      </CardBody>
+    </Card>
   );
 };
 
