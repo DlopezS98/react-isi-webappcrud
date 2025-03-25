@@ -1,0 +1,47 @@
+.isi-datagrid-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.isi-datagrid-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.isi-datagrid-container th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.isi-datagrid-container td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.isi-datagrid-container tr:nth-child(even) {
+  background-color: #e9ecf4;
+}
+
+.isi-datagrid-container tr:hover {
+  background-color: #f1f1f1;
+}
+
+.isi-datagrid-container th:first-child,
+.isi-datagrid-container td:first-child {
+  padding-left: 0;
+}
+
+.isi-datagrid-container th:last-child,
+.isi-datagrid-container td:last-child {
+  padding-right: 0;
+}
+
+/* .isi-datagrid-container .isi-datagrid-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+} */
