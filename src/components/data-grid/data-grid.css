@@ -77,6 +77,11 @@
   color: #333;
 }
 
+.isi-datagrid-container table thead tr {
+  position: sticky;
+  top: 58px;
+}
+
 /* .isi-datagrid-container .isi-datagrid-actions {
   display: flex;
   justify-content: flex-end;
