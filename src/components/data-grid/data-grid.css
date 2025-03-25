@@ -9,6 +9,7 @@
 .isi-datagrid-container table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .isi-datagrid-container th {
@@ -26,8 +27,14 @@
   background-color: #e9ecf4;
 }
 
-.isi-datagrid-container tr:hover {
-  background-color: #f1f1f1;
+.isi-datagrid-container tbody tr:hover {
+  background-color: burlywood;
+  color: white;
+}
+
+.isi-datagrid-container thead tr th {
+  background-color: #e9ecf4;
+  color: #333;
 }
 
 .isi-datagrid-container th:first-child,

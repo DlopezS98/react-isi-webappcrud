@@ -1,43 +1,65 @@
+import React from 'react';
 import './data-grid.css';
 
-export interface DataGridProps {}
+export interface GridRow {
+  id: string | number;
+  [key: string]: string | number | Date;
+}
 
-const DataGrid: React.FC<DataGridProps> = (props) => {
+export interface DatagridColumn {
+  header: string;
+  field: string;
+  type: 'text' | 'number' | 'date' | 'money';
+  prefix?: React.ReactNode;
+}
+
+export interface DataGridProps<TRow extends GridRow> {
+  rows: TRow[];
+  columns: DatagridColumn[];
+}
+
+export default function DataGrid<TRow extends GridRow>(props: DataGridProps<TRow>) {
+  const getColumnHeader = (column: DatagridColumn) => {
+    return <th key={column.field}>{column.header}</th>;
+  };
+
+  const getCellValue = (row: TRow, column: DatagridColumn) => {
+    const value = row[column.field];
+    if (column.type === 'date') {
+      return (value as Date).toLocaleDateString('en-US', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+    }
+    return value;
+  };
+
+  const getCell = (row: TRow, column: DatagridColumn) => {
+    return <td key={column.field}>{
+      column.prefix
+        ? <>{column.prefix} {String(getCellValue(row, column))}</>
+        : String(getCellValue(row, column))
+    }</td>;
+  };
+
+  const getRow = (row: TRow) => {
+    return (
+      <tr key={row.id}>
+        {props.columns.map(column => getCell(row, column))}
+      </tr>
+    );
+  };
+
   return (
     <div className='isi-datagrid-container shadow-md'>
       <table>
         <thead>
           <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
-            <th>Header 3</th>
+            {props.columns.map(getColumnHeader)}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Row 1, Cell 1</td>
-            <td>Row 1, Cell 2</td>
-            <td>Row 1, Cell 3</td>
-          </tr>
-          <tr>
-            <td>Row 2, Cell 1</td>
-            <td>Row 2, Cell 2</td>
-            <td>Row 2, Cell 3</td>
-          </tr>
-          <tr>
-            <td>Row 3, Cell 1</td>
-            <td>Row 3, Cell 2</td>
-            <td>Row 3, Cell 3</td>
-          </tr>
-          <tr>
-            <td>Row 4, Cell 1</td>
-            <td>Row 4, Cell 2</td>
-            <td>Row 4, Cell 3</td>
-          </tr>
+          {props.rows.map(getRow)}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default DataGrid;
