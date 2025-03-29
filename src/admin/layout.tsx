@@ -1,4 +1,5 @@
-import { Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
+import logo from '../logo.svg';
 
 export interface AdminLayoutProps {}
 
@@ -6,19 +7,31 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
   return (
     <div className='admin-container'>
       <header className='admin-header shadow-md'>
-        <nav>
-          <h1>Admin Header</h1>
-        </nav>
+        <div className='admin-header-logo'>
+          <img src={logo} className='App-logo' alt='logo' />
+        </div>
+        <div className='admin-header-toolbar'>
+          <span className='user-name'>Danny López</span>
+          <div className='user-avatar'>
+            <img src={logo} className='App-logo' alt='logo' />
+          </div>
+        </div>
       </header>
       <aside className='admin-sidebar'>
         <ul>
           <li>
-            <a href='/dashboard'>Dashboard</a>
+            <Link to='/dashboard'>Dashboard</Link>
           </li>
           <li>
-            <a href='/dashboard/products'>Products</a>
+            <Link to='/dashboard/products'>Products</Link>
+          </li>
+          <li>
+            <Link to='/dashboard/categories'>Categories</Link>
           </li>
         </ul>
+        <div className='logout-container'>
+          <button type='button'>Logout</button>
+        </div>
       </aside>
       <main className='admin-main-container'>
         <div className='admin-main-content container py-3'>
