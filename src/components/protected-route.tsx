@@ -4,7 +4,7 @@ import { useAuth } from '../context/auth.context';
 
 const ProtectedRoute = () => {
   const auth = useAuth();
-  if (!auth?.isSignedIn) return <Navigate to='/login' />;
+  if (!auth.isSignedIn) return <Navigate to='/login' />;
 
   return <Outlet />;
 };

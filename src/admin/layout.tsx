@@ -33,7 +33,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
           </li>
         </ul>
         <div className='logout-container'>
-          <button onClick={() => auth?.logout()} type='button'>
+          <button onClick={() => auth.logout()} type='button'>
             Logout
           </button>
         </div>

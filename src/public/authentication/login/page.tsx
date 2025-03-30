@@ -6,7 +6,7 @@ export default function LoginPage() {
   return (
     <div>
       <h1>Login Page</h1>
-      <button onClick={() => auth?.signIn(null)}>Login</button>
+      <button onClick={() => auth.signIn(null)}>Login</button>
     </div>
   );
 }

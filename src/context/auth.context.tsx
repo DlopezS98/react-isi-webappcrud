@@ -10,7 +10,7 @@ export interface AuthContextData {
   token: string | null;
 }
 
-const AuthContext = createContext<AuthContextData | null>(null);
+const AuthContext = createContext<AuthContextData>({ isSignedIn: false, signIn: async () => {}, logout: () => {}, user: null, token: null });
 
 const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<UserModel | null>(null);
