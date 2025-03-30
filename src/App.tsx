@@ -11,7 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Link to={'/dashboard'}>Go to dashboard</Link>
+        <Link to={'/admin'}>Go to dashboard</Link>
       </header>
     </div>
   );
