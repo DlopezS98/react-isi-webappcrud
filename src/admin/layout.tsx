@@ -1,6 +1,10 @@
 import { Link, Outlet } from 'react-router';
 import logo from '../logo.svg';
 import { useAuth } from '../context/auth.context';
+import { FiBarChart2 } from 'react-icons/fi';
+import { FiBox } from 'react-icons/fi';
+import { FiTag } from 'react-icons/fi';
+import { FiLogOut } from 'react-icons/fi';
 
 export interface AdminLayoutProps {}
 
@@ -27,23 +31,23 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
         <ul>
           <li>
             <Link to='/admin/dashboard' className={getIsActive('/admin/dashboard') || getIsActive('/admin')}>
-              Dashboard
+              <FiBarChart2 /> Dashboard
             </Link>
           </li>
           <li>
             <Link to='/admin/products' className={getIsActive('/admin/products')}>
-              Products
+              <FiBox /> Products
             </Link>
           </li>
           <li>
             <Link to='/admin/categories' className={getIsActive('/admin/categories')}>
-              Categories
+              <FiTag /> Categories
             </Link>
           </li>
         </ul>
         <div className='logout-container'>
           <button onClick={() => auth.logout()} type='button'>
-            Logout
+            <FiLogOut /> Logout
           </button>
         </div>
       </aside>

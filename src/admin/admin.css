@@ -80,8 +80,11 @@
 .admin-sidebar ul li a {
 	text-decoration: none;
 	padding: 12px;
-	text-align: center;
 	color: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
 }
 
 .admin-sidebar ul li a.active {
@@ -101,6 +104,10 @@
 	background-color: burlywood;
 	font-weight: 600;
 	cursor: pointer;
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	align-items: center;
 }
 
 .admin-sidebar .logout-container button:hover {
