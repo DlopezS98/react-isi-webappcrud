@@ -1,9 +1,9 @@
 import Button from '../../components/button';
 import Card, { CardBody, CardHeader } from '../../components/card';
 import DataGrid, { DatagridColumn } from '../../components/data-grid';
-import AddIcon from '@mui/icons-material/Add';
 import { Products } from './data';
 import { useNavigate } from 'react-router';
+import { FiPlus } from 'react-icons/fi';
 
 export interface ProductsPageProps {}
 
@@ -48,7 +48,7 @@ const ProductsPage: React.FC<ProductsPageProps> = () => {
         <DataGrid
           toolbar={
             <Button onClick={handleAddProduct} variant='primary'>
-              <AddIcon /> Add product
+              <FiPlus /> Add product
             </Button>
           }
           rows={Products}

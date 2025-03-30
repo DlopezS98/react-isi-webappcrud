@@ -1,6 +1,6 @@
 import Button from '../../components/button';
 import Card, { CardBody, CardHeader } from '../../components/card';
-import SaveIcon from '@mui/icons-material/Save';
+import { FiSave } from 'react-icons/fi';
 
 export default function CreateProductPage() {
   return (
@@ -44,7 +44,7 @@ export default function CreateProductPage() {
           </div>
           <div className='column'>
             <Button onClick={() => {}} variant='primary'>
-              <SaveIcon /> Create Product
+              <FiSave /> Create Product
             </Button>
           </div>
         </form>
