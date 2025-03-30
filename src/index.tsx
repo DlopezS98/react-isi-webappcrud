@@ -10,6 +10,7 @@ import ProductsPage from './admin/products/page';
 import CreateProductPage from './admin/products/create';
 import AuthProvider from './context/auth.context';
 import ProtectedRoute from './components/protected-route';
+import LoginPage from './public/authentication/login/page';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -18,6 +19,7 @@ root.render(
       <AuthProvider>
         <Routes>
           <Route path='/' element={<App />} />
+          <Route path='/login' element={<LoginPage />} />
           <Route path='/onboarding' element={<Placeholder />} />
           <Route element={<ProtectedRoute />}>
             <Route path='/dashboard' element={<AdminLayout />}>
