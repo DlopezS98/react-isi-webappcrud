@@ -1,9 +1,12 @@
 import { Link, Outlet } from 'react-router';
 import logo from '../logo.svg';
+import { useAuth } from '../context/auth.context';
 
 export interface AdminLayoutProps {}
 
 const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
+  const auth = useAuth();
+
   return (
     <div className='admin-container'>
       <header className='admin-header shadow-md'>
@@ -30,7 +33,9 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
           </li>
         </ul>
         <div className='logout-container'>
-          <button type='button'>Logout</button>
+          <button onClick={() => auth?.logout()} type='button'>
+            Logout
+          </button>
         </div>
       </aside>
       <main className='admin-main-container'>
