@@ -6,6 +6,7 @@ export interface AdminLayoutProps {}
 
 const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
   const auth = useAuth();
+  const currentUser = auth.user!;
 
   return (
     <div className='admin-container'>
@@ -14,7 +15,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
           <img src={logo} className='App-logo' alt='logo' />
         </div>
         <div className='admin-header-toolbar'>
-          <span className='user-name'>Danny López</span>
+          <span className='user-name'>{`${currentUser.firstName} ${currentUser.lastName}`}</span>
           <div className='user-avatar'>
             <img src={logo} className='App-logo' alt='logo' />
           </div>
