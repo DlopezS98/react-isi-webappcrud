@@ -7,6 +7,8 @@ export interface AdminLayoutProps {}
 const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
   const auth = useAuth();
   const currentUser = auth.user!;
+  const currentPath: string = window.location?.pathname || '';
+  const getIsActive = (path: string) => (currentPath === path ? 'active' : '');
 
   return (
     <div className='admin-container'>
@@ -24,13 +26,19 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
       <aside className='admin-sidebar'>
         <ul>
           <li>
-            <Link to='/dashboard'>Dashboard</Link>
+            <Link to='/admin/dashboard' className={getIsActive('/admin/dashboard')}>
+              Dashboard
+            </Link>
           </li>
           <li>
-            <Link to='/dashboard/products'>Products</Link>
+            <Link to='/admin/products' className={getIsActive('/admin/products')}>
+              Products
+            </Link>
           </li>
           <li>
-            <Link to='/dashboard/categories'>Categories</Link>
+            <Link to='/admin/categories' className={getIsActive('/admin/categories')}>
+              Categories
+            </Link>
           </li>
         </ul>
         <div className='logout-container'>

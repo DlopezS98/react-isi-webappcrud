@@ -39,7 +39,7 @@ const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       // throw new Error(res.message);
       setUser(new UserModel(1, 'Danny', 'López', '01dlopezs98@gmail.com'));
       setToken(token);
-      navigate('/dashboard');
+      navigate('/admin');
     } catch (err) {
       console.error(err);
     }

@@ -22,8 +22,8 @@ root.render(
           <Route path='/login' element={<LoginPage />} />
           <Route path='/onboarding' element={<Placeholder />} />
           <Route element={<ProtectedRoute />}>
-            <Route path='/dashboard' element={<AdminLayout />}>
-              <Route index element={<Placeholder label='Dashboard' />} />
+            <Route path='/admin' element={<AdminLayout />}>
+              <Route index path='dashboard' element={<Placeholder label='Dashboard' />} />
               <Route path='products'>
                 <Route index element={<ProductsPage />} />
                 <Route path='create' element={<CreateProductPage />} />

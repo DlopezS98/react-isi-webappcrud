@@ -35,7 +35,7 @@ const ProductsPage: React.FC<ProductsPageProps> = () => {
   const navigate = useNavigate();
 
   const handleAddProduct = () => {
-    navigate('/dashboard/products/create');
+    navigate('/admin/products/create');
   };
 
   return (
