@@ -26,7 +26,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = (props) => {
       <aside className='admin-sidebar'>
         <ul>
           <li>
-            <Link to='/admin/dashboard' className={getIsActive('/admin/dashboard')}>
+            <Link to='/admin/dashboard' className={getIsActive('/admin/dashboard') || getIsActive('/admin')}>
               Dashboard
             </Link>
           </li>
